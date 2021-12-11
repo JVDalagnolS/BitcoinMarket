@@ -21,10 +21,11 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_dados"
-        android:layout_width="349dp"
-        android:layout_height="368dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="92dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_total" />
 

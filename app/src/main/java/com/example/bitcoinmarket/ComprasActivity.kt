@@ -6,8 +6,8 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.bitcoinmarket.DAO.ComprasDAO
-import com.example.bitcoinmarket.Objetos.Ativo
+import com.example.bitcoinmarket.DAO.PurchasesDAO
+import com.example.bitcoinmarket.Objetos.Asset
 import com.example.bitcoinmarket.Objetos.Compra
 import com.example.bitcoinmarket.Objetos.Nome
 import kotlinx.android.synthetic.main.activity_compras.*
@@ -21,7 +21,7 @@ class ComprasActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_compras)
-        val ativo = intent.getParcelableExtra<Ativo>("ativos")
+        val ativo = intent.getParcelableExtra<Asset>("ativos")
         nome = ativo?.nome.toString()
 
 
@@ -46,7 +46,7 @@ class ComprasActivity : AppCompatActivity() {
     }
 
     private fun update() {
-        val compraDao = ComprasDAO(this)
+        val compraDao = PurchasesDAO(this)
         AtivoList.clear()
         AtivoList = compraDao.selectNome(nome)
         txt_codigo.text =

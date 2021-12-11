@@ -36,12 +36,12 @@ data class Compra(
         return 0
     }
 
-    companion object CREATOR : Parcelable.Creator<Ativo> {
-        override fun createFromParcel(parcel: Parcel): Ativo {
-            return Ativo(parcel)
+    companion object CREATOR : Parcelable.Creator<Asset> {
+        override fun createFromParcel(parcel: Parcel): Asset {
+            return Asset(parcel)
         }
 
-        override fun newArray(size: Int): Array<Ativo?> {
+        override fun newArray(size: Int): Array<Asset?> {
             return arrayOfNulls(size)
         }
     }

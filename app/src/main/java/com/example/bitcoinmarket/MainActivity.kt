@@ -18,9 +18,9 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.bitcoinmarket.API.MoedaAtivosHTTP
-import com.example.bitcoinmarket.DAO.AtivosDAO
-import com.example.bitcoinmarket.DAO.ComprasDAO
-import com.example.bitcoinmarket.Objetos.Ativo
+import com.example.bitcoinmarket.DAO.AssetsDAO
+import com.example.bitcoinmarket.DAO.PurchasesDAO
+import com.example.bitcoinmarket.Objetos.Asset
 import com.example.bitcoinmarket.Objetos.MoedaAtivos
 import kotlinx.android.synthetic.main.activity_main.*
 import java.text.DecimalFormat
@@ -28,7 +28,7 @@ import java.text.DecimalFormat
 
 class MainActivity : AppCompatActivity() {
 
-    private var AtivoList = mutableListOf<Ativo>()
+    private var AtivoList = mutableListOf<Asset>()
     private var asyncTask: StatesTask? = null
     var valorLTC = 0.0
     var valorBTC = 0.0
@@ -64,11 +64,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun update() {
         val df = DecimalFormat("#0.00")
-        val ativoDao = AtivosDAO(this)
+        val ativoDao = AssetsDAO(this)
         CarregaDados()
         AtivoList.clear()
         AtivoList = ativoDao.select()
-        val compraDao = ComprasDAO(this)
+        val compraDao = PurchasesDAO(this)
         total = compraDao.selectTotal()
         qtdBTC = compraDao.selectQtd("Bitcoin")
         qtdLTC = compraDao.selectQtd("Litecoin")

@@ -3,7 +3,7 @@ package com.example.bitcoinmarket.Objetos
 import android.os.Parcel
 import android.os.Parcelable
 
-data class Ativo(var id: Int?, val nome: String?, val codigo: String?, var qtd: Double?) :
+data class Asset(var id: Int?, val nome: String?, val codigo: String?, var qtd: Double?) :
     Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
@@ -27,12 +27,12 @@ data class Ativo(var id: Int?, val nome: String?, val codigo: String?, var qtd: 
         return 0
     }
 
-    companion object CREATOR : Parcelable.Creator<Ativo> {
-        override fun createFromParcel(parcel: Parcel): Ativo {
-            return Ativo(parcel)
+    companion object CREATOR : Parcelable.Creator<Asset> {
+        override fun createFromParcel(parcel: Parcel): Asset {
+            return Asset(parcel)
         }
 
-        override fun newArray(size: Int): Array<Ativo?> {
+        override fun newArray(size: Int): Array<Asset?> {
             return arrayOfNulls(size)
         }
     }

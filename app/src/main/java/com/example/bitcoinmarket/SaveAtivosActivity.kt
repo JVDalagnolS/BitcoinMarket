@@ -4,8 +4,8 @@ import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
-import com.example.bitcoinmarket.DAO.AtivosDAO
-import com.example.bitcoinmarket.Objetos.Ativo
+import com.example.bitcoinmarket.DAO.AssetsDAO
+import com.example.bitcoinmarket.Objetos.Asset
 import kotlinx.android.synthetic.main.activity_save_ativos.*
 
 class SaveAtivosActivity : AppCompatActivity() {
@@ -55,8 +55,8 @@ class SaveAtivosActivity : AppCompatActivity() {
     }
 
     fun validaId() {
-        var ativo = Ativo(id_ativo, nome, codigo, qtd)
-        var ativoDao = AtivosDAO(this)
+        var ativo = Asset(id_ativo, nome, codigo, qtd)
+        var ativoDao = AssetsDAO(this)
         var validacaoId = ativoDao.pegaId(id_ativo)
         if (validacaoId == true) {
             ativoDao.insert(ativo)

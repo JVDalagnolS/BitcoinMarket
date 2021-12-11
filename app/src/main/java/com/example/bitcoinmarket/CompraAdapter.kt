@@ -11,7 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
-import com.example.bitcoinmarket.DAO.ComprasDAO
+import com.example.bitcoinmarket.DAO.PurchasesDAO
 import com.example.bitcoinmarket.Objetos.Compra
 import kotlinx.android.synthetic.main.ativos_item.view.txtmoeda
 import kotlinx.android.synthetic.main.compras_item.view.*
@@ -43,7 +43,7 @@ class CompraAdapter(private val ativos: List<Compra>) :
 
         holder.btn_drop.setOnClickListener({
             val df = DecimalFormat("#0.00")
-            val compraDao = ComprasDAO(it.context)
+            val compraDao = PurchasesDAO(it.context)
             val qtd = compraDao.selectQtd(ativo.nome.toString())
             val valor = compraDao.selectValorInvestido(ativo.nome.toString())
             if (mostrarItens == false) {
@@ -73,7 +73,7 @@ class CompraAdapter(private val ativos: List<Compra>) :
         })
 
         holder.btn_delete.setOnClickListener(View.OnClickListener {
-            val comprasDAO = ComprasDAO(it.context)
+            val comprasDAO = PurchasesDAO(it.context)
             val ativo = ativos[position]
             val alerta =
                 AlertDialog.Builder(it.context)

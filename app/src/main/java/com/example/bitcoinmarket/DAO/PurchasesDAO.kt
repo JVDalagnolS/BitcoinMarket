@@ -7,7 +7,7 @@ import android.util.Log
 import com.example.bitcoinmarket.*
 import com.example.bitcoinmarket.Objetos.Compra
 
-class ComprasDAO(context: Context) {
+class PurchasesDAO(context: Context) {
     val banco = DbHelper(context)
 
 

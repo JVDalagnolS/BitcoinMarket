@@ -9,7 +9,7 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.bitcoinmarket.API.MoedasComprasHTTP
-import com.example.bitcoinmarket.DAO.ComprasDAO
+import com.example.bitcoinmarket.DAO.PurchasesDAO
 import com.example.bitcoinmarket.Objetos.Compra
 import com.example.bitcoinmarket.Objetos.MoedaAtivos
 import com.example.bitcoinmarket.Objetos.Nome
@@ -64,7 +64,7 @@ class SaveComprasActivity : AppCompatActivity() {
                         edtQtd.text.toString().toDouble(),
                         valor
                     )
-                    var compraDao = ComprasDAO(this)
+                    var compraDao = PurchasesDAO(this)
                     compraDao.insert(compra)
                     onBackPressed()
                 } catch (e: Exception) {

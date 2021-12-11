@@ -11,13 +11,13 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
-import com.example.bitcoinmarket.DAO.AtivosDAO
-import com.example.bitcoinmarket.DAO.ComprasDAO
-import com.example.bitcoinmarket.Objetos.Ativo
+import com.example.bitcoinmarket.DAO.AssetsDAO
+import com.example.bitcoinmarket.DAO.PurchasesDAO
+import com.example.bitcoinmarket.Objetos.Asset
 import kotlinx.android.synthetic.main.ativos_item.view.*
 import java.text.DecimalFormat
 
-class AtivosAdapter(private val ativos: List<Ativo>) :
+class AtivosAdapter(private val assets: List<Asset>) :
     RecyclerView.Adapter<AtivosAdapter.VH>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
@@ -27,7 +27,7 @@ class AtivosAdapter(private val ativos: List<Ativo>) :
 
 
         vh.itemView.setOnClickListener {
-            val ativo = ativos[vh.adapterPosition]
+            val ativo = assets[vh.adapterPosition]
             val it = Intent(parent.context, ComprasActivity::class.java)
             it.putExtra("ativos", ativo)
             parent.context.startActivity(it)
@@ -37,16 +37,16 @@ class AtivosAdapter(private val ativos: List<Ativo>) :
     }
 
     override fun getItemCount(): Int {
-        return ativos.size
+        return assets.size
     }
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         Log.v("LOG", "ViewHolder")
-        var ativo = ativos[position]
+        var ativo = assets[position]
         var mostrarItens = false
         holder.btn_delete.setOnClickListener(View.OnClickListener {
-            val ativoDao = AtivosDAO(it.context)
-            val ativo = ativos[position]
+            val ativoDao = AssetsDAO(it.context)
+            val ativo = assets[position]
             val alerta =
                 AlertDialog.Builder(it.context)
             alerta.setTitle("Aviso")
@@ -78,7 +78,7 @@ class AtivosAdapter(private val ativos: List<Ativo>) :
 
         holder.btn_drop.setOnClickListener({
             val df = DecimalFormat("#0.00")
-            val compraDao = ComprasDAO(it.context)
+            val compraDao = PurchasesDAO(it.context)
             val qtd = compraDao.selectQtd(ativo.nome.toString())
             val valor = compraDao.selectValorInvestido(ativo.nome.toString())
             if (mostrarItens == false) {
