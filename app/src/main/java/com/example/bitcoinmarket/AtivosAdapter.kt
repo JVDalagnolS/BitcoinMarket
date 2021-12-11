@@ -11,10 +11,11 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
+import com.example.bitcoinmarket.DAO.AtivosDAO
+import com.example.bitcoinmarket.DAO.ComprasDAO
 import com.example.bitcoinmarket.Objetos.Ativo
 import kotlinx.android.synthetic.main.ativos_item.view.*
 import java.text.DecimalFormat
-
 
 class AtivosAdapter(private val ativos: List<Ativo>) :
     RecyclerView.Adapter<AtivosAdapter.VH>() {

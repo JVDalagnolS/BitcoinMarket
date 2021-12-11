@@ -9,6 +9,7 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.bitcoinmarket.API.MoedasComprasHTTP
+import com.example.bitcoinmarket.DAO.ComprasDAO
 import com.example.bitcoinmarket.Objetos.Compra
 import com.example.bitcoinmarket.Objetos.MoedaAtivos
 import com.example.bitcoinmarket.Objetos.Nome

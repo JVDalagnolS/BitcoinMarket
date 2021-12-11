@@ -1,10 +1,10 @@
-package com.example.bitcoinmarket
+package com.example.bitcoinmarket.DAO
 
-import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.util.Log
+import com.example.bitcoinmarket.*
 import com.example.bitcoinmarket.Objetos.Compra
 
 class ComprasDAO(context: Context) {

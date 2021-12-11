@@ -11,6 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
+import com.example.bitcoinmarket.DAO.ComprasDAO
 import com.example.bitcoinmarket.Objetos.Compra
 import kotlinx.android.synthetic.main.ativos_item.view.txtmoeda
 import kotlinx.android.synthetic.main.compras_item.view.*

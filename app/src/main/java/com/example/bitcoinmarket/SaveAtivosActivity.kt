@@ -4,6 +4,7 @@ import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
+import com.example.bitcoinmarket.DAO.AtivosDAO
 import com.example.bitcoinmarket.Objetos.Ativo
 import kotlinx.android.synthetic.main.activity_save_ativos.*
 

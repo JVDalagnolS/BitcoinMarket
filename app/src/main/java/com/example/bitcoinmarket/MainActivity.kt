@@ -18,6 +18,8 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.bitcoinmarket.API.MoedaAtivosHTTP
+import com.example.bitcoinmarket.DAO.AtivosDAO
+import com.example.bitcoinmarket.DAO.ComprasDAO
 import com.example.bitcoinmarket.Objetos.Ativo
 import com.example.bitcoinmarket.Objetos.MoedaAtivos
 import kotlinx.android.synthetic.main.activity_main.*

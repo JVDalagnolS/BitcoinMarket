@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.bitcoinmarket.DAO.ComprasDAO
 import com.example.bitcoinmarket.Objetos.Ativo
 import com.example.bitcoinmarket.Objetos.Compra
 import com.example.bitcoinmarket.Objetos.Nome
