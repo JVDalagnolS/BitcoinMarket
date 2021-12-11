@@ -1,6 +1,6 @@
 package com.example.bitcoinmarket.Objetos
 
-class MoedaAtivos(
+class AssetCoin(
     var high: String?,
     var low: String,
     var vol: String,

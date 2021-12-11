@@ -17,8 +17,8 @@ import com.example.bitcoinmarket.Objetos.Asset
 import kotlinx.android.synthetic.main.ativos_item.view.*
 import java.text.DecimalFormat
 
-class AtivosAdapter(private val assets: List<Asset>) :
-    RecyclerView.Adapter<AtivosAdapter.VH>() {
+class AssetsAdapter(private val assets: List<Asset>) :
+    RecyclerView.Adapter<AssetsAdapter.VH>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
         Log.v("LOG", "onCreate")
@@ -28,7 +28,7 @@ class AtivosAdapter(private val assets: List<Asset>) :
 
         vh.itemView.setOnClickListener {
             val ativo = assets[vh.adapterPosition]
-            val it = Intent(parent.context, ComprasActivity::class.java)
+            val it = Intent(parent.context, PurchasesActivity::class.java)
             it.putExtra("ativos", ativo)
             parent.context.startActivity(it)
 

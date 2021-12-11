@@ -17,11 +17,11 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.bitcoinmarket.API.MoedaAtivosHTTP
+import com.example.bitcoinmarket.API.AssetsCoinHTTP
 import com.example.bitcoinmarket.DAO.AssetsDAO
 import com.example.bitcoinmarket.DAO.PurchasesDAO
 import com.example.bitcoinmarket.Objetos.Asset
-import com.example.bitcoinmarket.Objetos.MoedaAtivos
+import com.example.bitcoinmarket.Objetos.AssetCoin
 import kotlinx.android.synthetic.main.activity_main.*
 import java.text.DecimalFormat
 
@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
 
         fab_add.setOnClickListener(View.OnClickListener {
 
-            val it = Intent(this, SaveAtivosActivity::class.java)
+            val it = Intent(this, SaveAssetsActivity::class.java)
             startActivity(it)
         })
         initRecyclerView()
@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initRecyclerView() {
         Log.v("LOG", "Inicia RecyclerView")
-        val adapter2 = AtivosAdapter(AtivoList)
+        val adapter2 = AssetsAdapter(AtivoList)
         rv_dados.adapter = adapter2
         val layout = LinearLayoutManager(this)
         rv_dados.layoutManager = layout
@@ -125,7 +125,7 @@ class MainActivity : AppCompatActivity() {
 
     fun CarregaDados() {
         if (asyncTask == null) {
-            if (MoedaAtivosHTTP.hasConnection(this)) {
+            if (AssetsCoinHTTP.hasConnection(this)) {
                 if (asyncTask?.status != AsyncTask.Status.RUNNING) {
                     asyncTask = StatesTask()
                     asyncTask?.execute()
@@ -141,7 +141,7 @@ class MainActivity : AppCompatActivity() {
 
 
     @SuppressLint("StaticFieldLeak")
-    inner class StatesTask : AsyncTask<Void, Void, ArrayList<MoedaAtivos>?>() {
+    inner class StatesTask : AsyncTask<Void, Void, ArrayList<AssetCoin>?>() {
 
         override fun onPreExecute() {
             super.onPreExecute()
@@ -150,12 +150,12 @@ class MainActivity : AppCompatActivity() {
 
         @SuppressLint("WrongThread")
         @RequiresApi(Build.VERSION_CODES.O)
-        override fun doInBackground(vararg params: Void?): ArrayList<MoedaAtivos>? {
-            return MoedaAtivosHTTP.loadMoeda()
+        override fun doInBackground(vararg params: Void?): ArrayList<AssetCoin>? {
+            return AssetsCoinHTTP.loadMoeda()
         }
 
 
-        private fun update(result: ArrayList<MoedaAtivos>?) {
+        private fun update(result: ArrayList<AssetCoin>?) {
             val df = DecimalFormat("#0.00")
             if (result != null) {
 
@@ -198,10 +198,10 @@ class MainActivity : AppCompatActivity() {
             asyncTask = null
         }
 
-        override fun onPostExecute(result: ArrayList<MoedaAtivos>?) {
+        override fun onPostExecute(result: ArrayList<AssetCoin>?) {
             super.onPostExecute(result)
             if (result != null) {
-                update(result as ArrayList<MoedaAtivos>)
+                update(result as ArrayList<AssetCoin>)
             } else {
                 img_net_check.setVisibility(View.VISIBLE)
                 txt_net_check.setVisibility(View.VISIBLE)

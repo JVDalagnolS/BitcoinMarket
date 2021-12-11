@@ -8,14 +8,14 @@ import com.example.bitcoinmarket.DAO.AssetsDAO
 import com.example.bitcoinmarket.Objetos.Asset
 import kotlinx.android.synthetic.main.activity_save_ativos.*
 
-class SaveAtivosActivity : AppCompatActivity() {
+class SaveAssetsActivity : AppCompatActivity() {
     var nome = ""
     var codigo = ""
     var qtd = 0.0
     var id_ativo: Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_save_ativos)
+        setContentView(R.layout.activity_save_assets)
 
         btn_add_btc.setOnClickListener({
 
@@ -63,7 +63,7 @@ class SaveAtivosActivity : AppCompatActivity() {
             onBackPressed()
         } else {
             val alerta =
-                AlertDialog.Builder(this@SaveAtivosActivity)
+                AlertDialog.Builder(this@SaveAssetsActivity)
             alerta.setTitle("Aviso")
             alerta
                 .setIcon(R.drawable.ic_info_foreground)

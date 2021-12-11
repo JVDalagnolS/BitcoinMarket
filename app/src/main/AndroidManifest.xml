@@ -13,13 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BitcoinMarket">
         <activity
-            android:name=".ComprasActivity"
+            android:name=".PurchasesActivity"
             android:exported="true" />
         <activity
-            android:name=".SaveComprasActivity"
+            android:name=".SavePurchasesActivity"
             android:exported="true" />
         <activity
-            android:name=".SaveAtivosActivity"
+            android:name=".SaveAssetsActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"

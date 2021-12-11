@@ -1,5 +1,6 @@
 package com.example.bitcoinmarket.DAO
 
+import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
@@ -71,6 +72,7 @@ class AssetsDAO(context: Context) {
     }
 
 
+    @SuppressLint("Range")
     private fun ativoFromCursor(cursor: Cursor): Asset {
         val id = cursor.getInt(cursor.getColumnIndex(ID_COLUMN))
         val codigo = cursor.getString(cursor.getColumnIndex(CODIGO_COLUMN))

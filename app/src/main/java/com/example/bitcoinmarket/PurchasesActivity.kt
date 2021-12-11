@@ -8,15 +8,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.bitcoinmarket.DAO.PurchasesDAO
 import com.example.bitcoinmarket.Objetos.Asset
-import com.example.bitcoinmarket.Objetos.Compra
-import com.example.bitcoinmarket.Objetos.Nome
+import com.example.bitcoinmarket.Objetos.Purchase
+import com.example.bitcoinmarket.Objetos.Name
 import kotlinx.android.synthetic.main.activity_compras.*
 import kotlinx.android.synthetic.main.activity_main.fab_add
 import kotlinx.android.synthetic.main.activity_main.rv_dados
 import kotlinx.android.synthetic.main.activity_main.txtMsg
 
-class ComprasActivity : AppCompatActivity() {
-    private var AtivoList = mutableListOf<Compra>()
+class PurchasesActivity : AppCompatActivity() {
+    private var AtivoList = mutableListOf<Purchase>()
     var nome = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,8 +28,8 @@ class ComprasActivity : AppCompatActivity() {
         fab_add.setOnClickListener(View.OnClickListener {
 
 
-            var enviarNome = Nome(ativo?.nome)
-            val it = Intent(this, SaveComprasActivity::class.java)
+            var enviarNome = Name(ativo?.nome)
+            val it = Intent(this, SavePurchasesActivity::class.java)
             it.putExtra("nomeAtivo", enviarNome)
             startActivity(it)
         })
@@ -39,7 +39,7 @@ class ComprasActivity : AppCompatActivity() {
 
     private fun initRecyclerView() {
         Log.v("LOG", "Inicia RecyclerView")
-        val adapter2 = CompraAdapter(AtivoList)
+        val adapter2 = PurchaseAdapter(AtivoList)
         rv_dados.adapter = adapter2
         val layout = LinearLayoutManager(this)
         rv_dados.layoutManager = layout

@@ -8,39 +8,39 @@ import android.os.Bundle
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.example.bitcoinmarket.API.MoedasComprasHTTP
+import com.example.bitcoinmarket.API.CoinsPurchaseHTTP
 import com.example.bitcoinmarket.DAO.PurchasesDAO
-import com.example.bitcoinmarket.Objetos.Compra
-import com.example.bitcoinmarket.Objetos.MoedaAtivos
-import com.example.bitcoinmarket.Objetos.Nome
+import com.example.bitcoinmarket.Objetos.Purchase
+import com.example.bitcoinmarket.Objetos.AssetCoin
+import com.example.bitcoinmarket.Objetos.Name
 import kotlinx.android.synthetic.main.activity_save_compras.*
 import java.text.DateFormat
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
-class SaveComprasActivity : AppCompatActivity() {
+class SavePurchasesActivity : AppCompatActivity() {
     private var asyncTask: StatesTask? = null
     var codigo: String = ""
     var valor = 0.0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_save_compras)
+        setContentView(R.layout.activity_save_purchases)
 
-        val compra = intent.getParcelableExtra<Nome>("nomeAtivo")
-        if (compra?.nome.equals("Bitcoin")) {
+        val compra = intent.getParcelableExtra<Name>("nomeAtivo")
+        if (compra?.name.equals("Bitcoin")) {
             codigo = "BTC"
         }
-        if (compra?.nome.equals("Litecoin")) {
+        if (compra?.name.equals("Litecoin")) {
             codigo = "LTC"
         }
-        if (compra?.nome.equals("XRP")) {
+        if (compra?.name.equals("XRP")) {
             codigo = "XRP"
         }
-        if (compra?.nome.equals("BCash")) {
+        if (compra?.name.equals("BCash")) {
             codigo = "BCH"
         }
-        if (compra?.nome.equals("Ethereum")) {
+        if (compra?.name.equals("Ethereum")) {
             codigo = "ETH"
         }
         CarregaDados()
@@ -57,9 +57,9 @@ class SaveComprasActivity : AppCompatActivity() {
                     val dStr = getDate()
 
 
-                    var compra = Compra(
+                    var compra = Purchase(
                         null,
-                        compra?.nome.toString(),
+                        compra?.name.toString(),
                         dStr.toString(),
                         edtQtd.text.toString().toDouble(),
                         valor
@@ -78,7 +78,7 @@ class SaveComprasActivity : AppCompatActivity() {
 
     fun alerta() {
         val alerta =
-            AlertDialog.Builder(this@SaveComprasActivity)
+            AlertDialog.Builder(this@SavePurchasesActivity)
         alerta.setTitle("Aviso")
         alerta
             .setIcon(R.drawable.ic_info_foreground)
@@ -97,7 +97,7 @@ class SaveComprasActivity : AppCompatActivity() {
 
     fun CarregaDados() {
         if (asyncTask == null) {
-            if (MoedasComprasHTTP.hasConnection(this)) {
+            if (CoinsPurchaseHTTP.hasConnection(this)) {
                 if (asyncTask?.status != AsyncTask.Status.RUNNING) {
                     asyncTask = StatesTask()
                     asyncTask?.execute()
@@ -107,7 +107,7 @@ class SaveComprasActivity : AppCompatActivity() {
     }
 
     @SuppressLint("StaticFieldLeak")
-    inner class StatesTask : AsyncTask<Void, Void, MoedaAtivos?>() {
+    inner class StatesTask : AsyncTask<Void, Void, AssetCoin?>() {
 
         override fun onPreExecute() {
             super.onPreExecute()
@@ -116,12 +116,12 @@ class SaveComprasActivity : AppCompatActivity() {
 
         @SuppressLint("WrongThread")
         @RequiresApi(Build.VERSION_CODES.O)
-        override fun doInBackground(vararg params: Void?): MoedaAtivos? {
-            return MoedasComprasHTTP.loadMoedas(codigo)
+        override fun doInBackground(vararg params: Void?): AssetCoin? {
+            return CoinsPurchaseHTTP.loadMoedas(codigo)
         }
 
 
-        private fun update(result: MoedaAtivos?) {
+        private fun update(result: AssetCoin?) {
             var df = DecimalFormat("#0.00")
             if (result != null) {
                 valor = result.buy.toDouble()
@@ -131,9 +131,9 @@ class SaveComprasActivity : AppCompatActivity() {
             asyncTask = null
         }
 
-        override fun onPostExecute(result: MoedaAtivos?) {
+        override fun onPostExecute(result: AssetCoin?) {
             super.onPostExecute(result)
-            update(result as MoedaAtivos?)
+            update(result as AssetCoin?)
         }
     }
 

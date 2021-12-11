@@ -3,7 +3,7 @@ package com.example.bitcoinmarket.Objetos
 import android.os.Parcel
 import android.os.Parcelable
 
-data class Compra(
+data class Purchase(
     var id: Int?,
     val nome: String?,
     val data: String?,
@@ -16,7 +16,6 @@ data class Compra(
         parcel.readString(),
         parcel.readDouble(),
         parcel.readDouble()
-
     )
 
 

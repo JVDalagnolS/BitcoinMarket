@@ -12,13 +12,13 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bitcoinmarket.DAO.PurchasesDAO
-import com.example.bitcoinmarket.Objetos.Compra
+import com.example.bitcoinmarket.Objetos.Purchase
 import kotlinx.android.synthetic.main.ativos_item.view.txtmoeda
 import kotlinx.android.synthetic.main.compras_item.view.*
 import java.text.DecimalFormat
 
-class CompraAdapter(private val ativos: List<Compra>) :
-    RecyclerView.Adapter<CompraAdapter.VH>() {
+class PurchaseAdapter(private val ativos: List<Purchase>) :
+    RecyclerView.Adapter<PurchaseAdapter.VH>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
         Log.v("LOG", "onCreate")

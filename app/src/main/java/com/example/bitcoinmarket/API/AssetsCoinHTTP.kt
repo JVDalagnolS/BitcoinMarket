@@ -5,17 +5,18 @@ import android.net.ConnectivityManager
 import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
-import com.example.bitcoinmarket.Objetos.MoedaAtivos
+import com.example.bitcoinmarket.Objetos.AssetCoin
 import org.json.JSONObject
 import java.io.ByteArrayOutputStream
 import java.io.IOException
 import java.io.InputStream
-import java.lang.Exception
 import java.net.HttpURLConnection
 import java.net.URL
 import java.nio.charset.Charset
+import java.util.*
+import kotlin.collections.ArrayList
 
-object MoedasComprasHTTP {
+object AssetsCoinHTTP {
 
     val url = "https://www.mercadobitcoin.net/api/"
 
@@ -41,17 +42,32 @@ object MoedasComprasHTTP {
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    fun loadMoedas(moeda: String): MoedaAtivos? {
+    fun loadMoeda(): ArrayList<AssetCoin>? {
         try {
-            val connection = connect(url + moeda + "/ticker/")
-            val responseCode = connection.responseCode
-            if (responseCode == HttpURLConnection.HTTP_OK) {
-                val inputStream = connection.inputStream
-                val jsonString = streamToString(inputStream)
-                val jsonO = JSONObject(jsonString)
-                val json = jsonO.getJSONObject("ticker")
-                return readMoedas(json)
+            var ativo = ArrayList<AssetCoin>()
+            val moedas: List<String> = ArrayList(
+                Arrays.asList(
+                    "BTC",
+                    "LTC",
+                    "XRP",
+                    "BCH",
+                    "ETH"
+                )
+            )
+
+            for (i in 0..4) {
+
+                var connection = connect(url + moedas[i] + "/ticker/")
+                var responseCode = connection.responseCode
+                if (responseCode == HttpURLConnection.HTTP_OK) {
+                    val inputStream = connection.inputStream
+                    val jsonString = streamToString(inputStream)
+                    val jsonO = JSONObject(jsonString)
+                    val json = jsonO.getJSONObject("ticker")
+                    readMoedas(json)?.let { ativo.add(it) }
+                }
             }
+            return ativo
         } catch (e: Exception) {
             //Log.e("ERRO", e.message)
             e.printStackTrace()
@@ -62,9 +78,10 @@ object MoedasComprasHTTP {
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    fun readMoedas(json: JSONObject): MoedaAtivos? {
+    fun readMoedas(json: JSONObject): AssetCoin? {
         try {
-            val boletim = MoedaAtivos(
+
+            val boletim = AssetCoin(
                 json.getString("high"),
                 json.getString("low"),
                 json.getString("vol"),
