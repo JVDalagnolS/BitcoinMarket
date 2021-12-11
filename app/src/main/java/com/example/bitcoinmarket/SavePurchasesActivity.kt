@@ -13,7 +13,7 @@ import com.example.bitcoinmarket.DAO.PurchasesDAO
 import com.example.bitcoinmarket.Objetos.Purchase
 import com.example.bitcoinmarket.Objetos.AssetCoin
 import com.example.bitcoinmarket.Objetos.Name
-import kotlinx.android.synthetic.main.activity_save_compras.*
+import kotlinx.android.synthetic.main.activity_save_purchases.*
 import java.text.DateFormat
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
@@ -126,7 +126,7 @@ class SavePurchasesActivity : AppCompatActivity() {
             if (result != null) {
                 valor = result.buy.toDouble()
             }
-            txt_valor.text = resources.getString(R.string.valor_ativo) + " R$ " + df.format(valor)
+            txt_valor_purchasesave.text = resources.getString(R.string.valor_ativo) + " R$ " + df.format(valor)
 
             asyncTask = null
         }

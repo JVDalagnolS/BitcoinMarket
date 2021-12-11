@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.bitcoinmarket.DAO.AssetsDAO
 import com.example.bitcoinmarket.DAO.PurchasesDAO
 import com.example.bitcoinmarket.Objetos.Asset
-import kotlinx.android.synthetic.main.ativos_item.view.*
+import kotlinx.android.synthetic.main.asset_item.view.*
 import java.text.DecimalFormat
 
 class AssetsAdapter(private val assets: List<Asset>) :
@@ -22,7 +22,7 @@ class AssetsAdapter(private val assets: List<Asset>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
         Log.v("LOG", "onCreate")
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.ativos_item, parent, false)
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.asset_item, parent, false)
         val vh = VH(v)
 
 
@@ -111,12 +111,12 @@ class AssetsAdapter(private val assets: List<Asset>) :
 
     class VH(itenView: View) : RecyclerView.ViewHolder(itenView) {
 
-        var txtCodigo: TextView = itenView.txt_codigo
-        var txtMoeda: TextView = itenView.txtmoeda
-        var btn_delete: ImageView = itemView.btn_delete
-        var btn_drop: ImageView = itemView.drop
-        var txt_quantidade: TextView = itemView.txt_quantidade
-        var txt_valor: TextView = itemView.txt_valor
+        var txtCodigo: TextView = itenView.txt_codigo_asset
+        var txtMoeda: TextView = itenView.txtmoeda_asset
+        var btn_delete: ImageView = itemView.btn_delete_assets
+        var btn_drop: ImageView = itemView.drop_assets
+        var txt_quantidade: TextView = itemView.txt_quantidade_asset
+        var txt_valor: TextView = itemView.txt_valor_asset
         var barra: View = itemView.view3
 
     }

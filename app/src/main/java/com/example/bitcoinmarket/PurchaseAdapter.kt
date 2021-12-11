@@ -13,8 +13,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bitcoinmarket.DAO.PurchasesDAO
 import com.example.bitcoinmarket.Objetos.Purchase
-import kotlinx.android.synthetic.main.ativos_item.view.txtmoeda
-import kotlinx.android.synthetic.main.compras_item.view.*
+import kotlinx.android.synthetic.main.purchase_item.view.*
 import java.text.DecimalFormat
 
 class PurchaseAdapter(private val ativos: List<Purchase>) :
@@ -22,7 +21,7 @@ class PurchaseAdapter(private val ativos: List<Purchase>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
         Log.v("LOG", "onCreate")
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.compras_item, parent, false)
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.purchase_item, parent, false)
         val vh = VH(v)
 
 
@@ -110,12 +109,12 @@ class PurchaseAdapter(private val ativos: List<Purchase>) :
 
     class VH(itenView: View) : RecyclerView.ViewHolder(itenView) {
 
-        var txt_quantidade: TextView = itenView.txt_quantidade
-        var txt_moeda: TextView = itenView.txtmoeda
-        var txt_valor: TextView = itemView.txt_valor
-        var txt_data: TextView = itenView.txt_data
-        var btn_delete: ImageView = itenView.btn_delete
-        var btn_drop: ImageView = itemView.drop
+        var txt_quantidade: TextView = itenView.txt_quantidade_purchase
+        var txt_moeda: TextView = itenView.txtmoeda_purchase
+        var txt_valor: TextView = itemView.txt_valor_purchase
+        var txt_data: TextView = itenView.txt_data_purchase
+        var btn_delete: ImageView = itenView.btn_delete_purchase
+        var btn_drop: ImageView = itemView.drop_purchase
         var barra: View = itemView.view3
     }
 }

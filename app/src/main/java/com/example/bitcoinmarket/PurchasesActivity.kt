@@ -10,7 +10,7 @@ import com.example.bitcoinmarket.DAO.PurchasesDAO
 import com.example.bitcoinmarket.Objetos.Asset
 import com.example.bitcoinmarket.Objetos.Purchase
 import com.example.bitcoinmarket.Objetos.Name
-import kotlinx.android.synthetic.main.activity_compras.*
+import kotlinx.android.synthetic.main.activity_purchases.*
 import kotlinx.android.synthetic.main.activity_main.fab_add
 import kotlinx.android.synthetic.main.activity_main.rv_dados
 import kotlinx.android.synthetic.main.activity_main.txtMsg
@@ -20,7 +20,7 @@ class PurchasesActivity : AppCompatActivity() {
     var nome = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_compras)
+        setContentView(R.layout.activity_purchases)
         val ativo = intent.getParcelableExtra<Asset>("ativos")
         nome = ativo?.nome.toString()
 
@@ -49,7 +49,7 @@ class PurchasesActivity : AppCompatActivity() {
         val compraDao = PurchasesDAO(this)
         AtivoList.clear()
         AtivoList = compraDao.selectNome(nome)
-        txt_codigo.text =
+        txt_codigo_purchaseactivity.text =
             resources.getString(R.string.qtd_ativos) + " = " + compraDao.selectSoma(nome).toString()
 
         if (AtivoList.isEmpty()) {

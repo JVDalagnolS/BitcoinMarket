@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import com.example.bitcoinmarket.DAO.AssetsDAO
 import com.example.bitcoinmarket.Objetos.Asset
-import kotlinx.android.synthetic.main.activity_save_ativos.*
+import kotlinx.android.synthetic.main.activity_save_assets.*
 
 class SaveAssetsActivity : AppCompatActivity() {
     var nome = ""

@@ -24,9 +24,15 @@
         <entry key="..\:/Ulbra/2021-2/Tecnologia_Moveis/BitcoinMarket/app/src/main/res/menu/menu.xml" value="0.1" />
         <entry key="..\:/Users/coope/Documents/GitHub/BitcoinMarket/app/src/main/res/layout/activity_compras.xml" value="0.33" />
         <entry key="..\:/Users/coope/Documents/GitHub/BitcoinMarket/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/coope/Documents/GitHub/BitcoinMarket/app/src/main/res/layout/activity_purchases.xml" value="0.25" />
+        <entry key="..\:/Users/coope/Documents/GitHub/BitcoinMarket/app/src/main/res/layout/activity_save_assets.xml" value="0.18115942028985507" />
         <entry key="..\:/Users/coope/Documents/GitHub/BitcoinMarket/app/src/main/res/layout/activity_save_ativos.xml" value="0.18" />
         <entry key="..\:/Users/coope/Documents/GitHub/BitcoinMarket/app/src/main/res/layout/activity_save_compras.xml" value="0.33" />
+        <entry key="..\:/Users/coope/Documents/GitHub/BitcoinMarket/app/src/main/res/layout/activity_save_purchases.xml" value="0.18115942028985507" />
+        <entry key="..\:/Users/coope/Documents/GitHub/BitcoinMarket/app/src/main/res/layout/assets_item.xml" value="0.18115942028985507" />
         <entry key="..\:/Users/coope/Documents/GitHub/BitcoinMarket/app/src/main/res/layout/ativos_item.xml" value="0.25" />
+        <entry key="..\:/Users/coope/Documents/GitHub/BitcoinMarket/app/src/main/res/layout/compras_item.xml" value="0.18115942028985507" />
+        <entry key="..\:/Users/coope/Documents/GitHub/BitcoinMarket/app/src/main/res/menu/menu.xml" value="0.2" />
       </map>
     </option>
   </component>
