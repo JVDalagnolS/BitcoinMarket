@@ -10,11 +10,12 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_dados"
         android:layout_width="wrap_content"
-        android:layout_height="588dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="132dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_codigo" />
 
     <TextView
         android:id="@+id/txtMsg"
@@ -41,12 +42,13 @@
 
     <TextView
         android:id="@+id/txt_codigo"
-        style="@style/quantidade"
+        style="@style/TextAppearance.AppCompat.Display1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
         android:layout_marginTop="64dp"
         android:text="@string/qtd_ativos"
+        android:textColor="@color/design_default_color_on_secondary"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
